@@ -1,4 +1,4 @@
-export default (React, errorHandler, ErrComponent = null) => {
+module.exports = (React, errorHandler, errComponent = null) => {
     class ErrorBoundary extends React.Component {
         constructor(props) {
             super(props);
@@ -13,7 +13,7 @@ export default (React, errorHandler, ErrComponent = null) => {
     
         render() {
             if (this.state.hasError) {
-                return ErrComponent ? <ErrComponent/> : null
+                return errComponent ? errComponent : null
             }
             const props = {...this.props}
             delete props.children
