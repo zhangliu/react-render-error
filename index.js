@@ -15,7 +15,7 @@ module.exports = (React, errorHandler, errComponent = null) => {
             if (this.state.hasError) {
                 return errComponent ? errComponent : null
             }
-            const props = {...this.props}
+            const props = Object.assign({}, this.props)
             delete props.children
             return React.cloneElement(this.props.children, props);
         }
